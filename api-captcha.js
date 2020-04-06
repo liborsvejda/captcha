@@ -1,5 +1,5 @@
 const fs = require("fs");
-const unique = require("unique");
+const uniqid = require("uniqid");
 
 const IMAGES = [
     {"file":"captcha1.png", "code":"WXPGV"},
@@ -16,7 +16,7 @@ exports.apiCaptcha = function (req, res) {
         let listItem = {};
         listItem.imgId = Math.floor(Math.random() * IMAGES.length);
         listItem.attemptsLeft = 3; //max. 3 pokusy
-        let imgUid = "cptch"+unique();
+        let imgUid = uniqid();
         list[imgUid] = listItem;
         let obj = {};
         obj.uid = imgUid;

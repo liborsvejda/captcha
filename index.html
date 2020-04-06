@@ -7,6 +7,7 @@
         const HOST = window.location.protocol + "//" + window.location.hostname + ((window.location.port) ? ":" + window.location.port : "");
         let kapcaId;
         function ukazKapcu() {
+            document.getElementById("verification_result").innerHTML = ``;
             let url = `${HOST}/captcha/next`;
             fetch(url).then(function(response) {
                 response.text().then(function(text) {
@@ -28,7 +29,8 @@
                 response.text().then(function(text) {
                     let obj = JSON.parse(text);
                     if (obj.verified === true) {
-                        document.getElementById("verification_result").innerHTML = `<span style="background-color: greenyellow">OK</span>`;
+                        document.getElementById("verification_result").innerHTML = `<span style="background-color: greenyellow">OK...</span>`;
+                        setTimeout(ukazKapcu, 1000);
                     } else {
                         document.getElementById("verification_result").innerHTML = `<span style="background-color: coral">špatně! :-(</span>`;
                         if (obj.expired) {

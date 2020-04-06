@@ -12,7 +12,7 @@
   "dependencies": {
     "html-entities": "^1.2.1",
     "spaserver": "git+https://github.com/liborsvejda/spaserver.git",
-    "unique": "0.0.1"
+    "uniqid": "^5.2.0"
   },
   "devDependencies": {}
 }
